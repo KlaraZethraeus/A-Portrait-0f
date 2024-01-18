@@ -7,21 +7,56 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+const dotenv = require("dotenv")
+
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config()
+}
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `A Portrait Of`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Klara Zethraeus`,
+      summary: `A creative person`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+
+    menuLinks: [
+      {
+        name: "Portfolio",
+        link: "/",
+      },
+      {
+        name: "Projects",
+        link: "/projects",
+      },
+      {
+        name: "Gallery",
+        link: "/gallery",
+      },
+      {
+        name: "About",
+        link: "/about",
+      },
+      {
+        name: "Contact",
+        link: "/contact",
+      },
+    ],
+
     social: {
       twitter: `kylemathews`,
     },
   },
   plugins: [
     `gatsby-plugin-image`,
+    "gatsby-plugin-sharp",
+    "gatsby-plugin-sitemap",
+    "gatsby-plugin-postcss",
+    "gatsby-plugin-netlify",
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -119,6 +154,13 @@ module.exports = {
         // theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: "gatsby-source-contentful",
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
   ],

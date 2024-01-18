@@ -69,7 +69,7 @@ export const Head = ({ data: { markdownRemark: post } }) => {
     />
   )
 }
-
+// anpassa Query efter min grapgQL
 export default BlogPostTemplate
 
 export const pageQuery = graphql`

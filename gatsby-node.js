@@ -4,6 +4,8 @@
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
  */
 
+// kz: den är filen gör att vi kan hantera sökvägar till mappar och filer, vi skapar sidorna, vi genererar sidan, fråga i graphql vi hämtar slugen här, vi skapar sidan utifrån info vi fått
+
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
