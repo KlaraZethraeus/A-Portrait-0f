@@ -9,7 +9,7 @@ const IndexPage = ({ data }) => {
 
   const Portfolio = data.allContentfulPortfolio.nodes
   console.log(Portfolio)
-
+  console.log("")
   return (
     <Layout pageTitle="">
       <div>
